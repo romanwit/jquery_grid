@@ -1,0 +1,48 @@
+ul {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+table {
+    display: flex;
+    flex-flow: column;
+    height: 97%;
+    width: 100%;
+	
+}
+
+table thead {
+    /* head takes the height it requires, 
+    and it's not scaled when table is resized */
+    flex: 0 0 auto;
+    width: calc(100% - 0.9em);
+}
+
+table tbody {
+    /* body takes all the remaining available space */
+    flex: 1 1 auto;
+    display: block;
+    overflow-y: scroll;
+position:relative;
+z_index:1;
+}
+
+table tbody tr {
+	position:relative;
+	z-index:1;
+    width: 100%;
+}
+
+table thead, table tbody tr {
+    display: table;
+    table-layout: fixed;
+}
+
+tfoot {
+background-color: #f9f9f9;
+border:1px solid;
+}
+
+
+
