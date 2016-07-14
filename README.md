@@ -4,7 +4,7 @@ grid interface based on JSON.
 
 supported: sort asc/desc, filter, filter by substring, drag and drop columns (HTML5).
 
-tested at Firefox 47.0.
+tested at Firefox 47.0, Chrome 51, Edge (don't supported tbody scrolling)
 
 used: jQuery, jQuery UI, Bootstrap
 
