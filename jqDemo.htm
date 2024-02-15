@@ -4,13 +4,63 @@
     <meta http-equiv="content-type" content="text/html; charset=windows-1251">
         
     <title>JQuery Grid</title>        
-        
-    <link href="https://romanwit.github.io/jquery_grid/jq.css" rel="stylesheet">
+	
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css">
+
+    <style>
+	ul {
+	    height: auto;
+	    max-height: 200px;
+	    overflow-x: hidden;
+	}
+	
+	table {
+	    display: flex;
+	    flex-flow: column;
+	    height: 97%;
+	    width: 100%;
+		
+	}
+	
+	table thead {
+	    /* head takes the height it requires, 
+	    and it's not scaled when table is resized */
+	    flex: 0 0 auto;
+	    width: calc(100% - 0.9em);
+	}
+	
+	table tbody {
+	    /* body takes all the remaining available space */
+	    flex: 1 1 auto;
+	    display: block;
+	    overflow-y: scroll;
+	position:relative;
+	z_index:1;
+	}
+	
+	table tbody tr {
+		position:relative;
+		z-index:1;
+	    width: 100%;
+	}
+	
+	table thead, table tbody tr {
+	    display: table;
+	    table-layout: fixed;
+	}
+	
+	tfoot {
+	background-color: #f9f9f9;
+	border:1px solid;
+	}
+
+
+
+    </style>
     
 </head>
 
