@@ -6,9 +6,9 @@
     <title>JQuery Grid</title>        
         
     <link href="jq.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.2/themes/smoothness/jquery-ui.css">
     
@@ -131,19 +131,19 @@
 
                 itemsheader.push("<thead><tr class='tabhead'>");
                 $.each(combos, function(key0, val0) {
-                    th_gen = "<th id = 'th" + key0 + "' onresize='resize_body($(this), " + i + ");' draggable='true' ondragstart='drag_th(event);' ondragover='return false;' ondrop='drop_th(event);'>" + "<div class='input-group-btn'>" +
-                        "<button class='btn btn-default btn-secondary dropdown-toggle' type='button' data-toggle='dropdown' " +
-                        " >" +
-                        key0 + "<span class='caret'></span></button>" +
-                        "<ul class='dropdown-menu dropdown-menu-right uppy'  role='menu'>" +
-                        "<li contendeditable><input class='okenterfilter' id='ok" + key0 + "' type='text' class='form-control'" +
-                        " placeholder='enter filter here'   >" +
-                        "<input type='button' value='OK' class='btn-default' onclick='build_table_tags(true, \"" + key0 + "\", $(this).prev()[0].value);'></button></li>";
+                    th_gen = `<th id = 'th${key0}' onresize='resize_body($(this), " + i + ");' draggable='true' ondragstart='drag_th(event);' ondragover='return false;' ondrop='drop_th(event);'>
+                        <div class='input-group-btn'>
+                        <button class='btn btn-default btn-secondary dropdown-toggle' type='button' data-toggle='dropdown' 
+                         >${key0}<span class='caret'></span></button>
+                        <ul class='dropdown-menu dropdown-menu-right uppy'  role='menu'>
+                        <li contendeditable><input class='okenterfilter' id='ok${key0}' type='text' class='form - control'
+                         placeholder='enter filter here'   >
+                        <input type='button' value='OK' class='btn-default' onclick='build_table_tags(true, \"${key0}\", $(this).prev()[0].value);'></button></li>`;
                     for (var j = 0; j < val0.length; j++) {
-                        th_gen += "<li><a href='#' onclick='build_table_tags(false, \"" + key0 + "\", \"" + val0[j] + "\");'>" + val0[j] + "</a></li>";
+                        th_gen += `<li><a href='#' onclick='build_table_tags(false, \"${key0}\", \"${val0[j]}\");'>${val0[j]}</a></li>`;
                     }
                     i = i + 1;
-                    th_gen += "</ul></div><span class='caret sorty' onclick='build_table_tags(false, \"" + key0 + "\", \"\", true);'></span></th>";
+                    th_gen += `</ul></div><span class='caret sorty' onclick='build_table_tags(false, \"${key0}\", \"\", true);'></span></th>`;
                     itemsheader.push(th_gen);
                 });
                 itemsheader.push("</tr></thead><tbody>");
@@ -153,7 +153,7 @@
                 $.each(data_filtered, function(key, val) {                    
                     tr_gen = "<tr>";
                     $.each(val, function(key0, val0) { 
-                        tr_gen += "<td id='" + key + key0 + "'>" + val0 + "</td>";
+                        tr_gen += `<td id='${key}${key0}'>${val0}</td>`;
                     });
                     tr_gen += "</tr>";                    
                     items.push(tr_gen);
@@ -162,12 +162,12 @@
                 items.push("</tbody>");                
                 
                 if (filter == "") {
-                    filtermessage = "nofilter. " + (items.length - 1) + " row(s)";
+                    filtermessage = `nofilter. ${(items.length - 1)} row(s)`;
                 } else {
                     if (!islike) {
-                        filtermessage = "filtered [" + field + "] = " + filter + ". " + (items.length - 1) + " row(s)";
+                        filtermessage = `filtered [${field}] = ${filter}. ${(items.length - 1)} row(s)`;
                     } else {
-                        filtermessage = "filtered [" + field + "] like " + filter + ". " + (items.length - 1) + " row(s)";
+                        filtermessage = `filtered [${field}] like ${filter}. ${(items.length - 1)} row(s)`;
                     }
 
                 }
@@ -177,7 +177,7 @@
                 $("<table/>", {
                     "class": "table table-striped",
                     html: itemsheader.join("")
-                }).append(items.join("")).append("<tfoot><tr><td id='filermessage'>" + filtermessage + "</td></tr></tfoot>").appendTo("body");
+                }).append(items.join("")).append(`<tfoot><tr><td id='filermessage'>${filtermessage}</td></tr></tfoot>`).appendTo("body");
 
                 $(".okenterfilter").keypress(function() {
                     var my_input = $(this);
