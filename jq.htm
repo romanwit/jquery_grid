@@ -131,7 +131,7 @@
 
                 itemsheader.push("<thead><tr class='tabhead'>");
                 $.each(combos, function(key0, val0) {
-                    th_gen = `<th id = 'th${key0}' onresize='resize_body($(this), " + i + ");' draggable='true' ondragstart='drag_th(event);' ondragover='return false;' ondrop='drop_th(event);'>
+                    th_gen = `<th id = 'th${key0}' onresize='resize_body($(this), ${i});' draggable='true' ondragstart='drag_th(event);' ondragover='return false;' ondrop='drop_th(event);'>
                         <div class='input-group-btn'>
                         <button class='btn btn-default btn-secondary dropdown-toggle' type='button' data-toggle='dropdown' 
                          >${key0}<span class='caret'></span></button>
